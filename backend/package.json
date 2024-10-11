@@ -1,25 +1,19 @@
 {
-  "name": "api-adm-cadastro",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon  ./src/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-<<<<<<< HEAD:backend/package.json
+    "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
-=======
-    "multer": "^1.4.5-lts.1",
->>>>>>> 38af4f28a7d3d8f1814445b61fdcf7fb5c5c3d0d:package.json
     "mysql2": "^3.11.3",
     "nodemon": "^3.1.7"
   }
