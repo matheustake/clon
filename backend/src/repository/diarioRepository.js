@@ -1,90 +1,57 @@
 import con from './connection.js';
 
-<<<<<<<< HEAD:backend/src/repository/diarioRepository.js
-export async function inserirDiario() {
-========
-export async function inserirLogin(login) {
->>>>>>>> 38af4f28a7d3d8f1814445b61fdcf7fb5c5c3d0d:backend/src/repository/loginRepository.js
+
+export async function inserirDiario(segredo) {
     const comando = `
-    INSERT INTO tb_cadastro_adm(email, senha)
+    INSERT INTO tb_diario(dt_dia, ds_conteudo,)
     values( ? , ?)
     `
 
-    let resposta = await con.query(comando, [login.email, login.senha])
+    let resposta = await con.query(comando, [segredo.dia, segredo.conteudo])
     let info = resposta[0];
 
     return info.insertId;
     
 }
 
-<<<<<<<< HEAD:backend/src/repository/diarioRepository.js
-export async function consultarDiario (id, login) {
-========
-
-export async function validarLogin(login){
-
+export async function consultarDiario (id, segredo) {
     const comando = `
-    
     select 
-    id_cadastro id,
-    email,
-    senha
-    from tb_cadastro_adm
-    where email = ? and senha = ?
-
+    id_diario     id,
+    dt_dia        data,
+    ds_conteudo   conteudo
+    from tb_diario
     `;
-
-    let resposta = await con.query(comando, [login.email, login.senha]);
-
-    let registros = resposta[0][0];
-
-    return registros;
-
-}
-
-
-export async function consultarLogin() {
->>>>>>>> 38af4f28a7d3d8f1814445b61fdcf7fb5c5c3d0d:backend/src/repository/loginRepository.js
-  const comando = ` 
-  select id_cadastro id,
-  email  email,
-  senha  senha
-  from tb_cadastro_adm
-  `;
 
   let resposta = await con.query(comando);
   let registros = resposta[0];
 
   return registros;
+
 }
 
-<<<<<<<< HEAD:backend/src/repository/diarioRepository.js
-export async function alterarDiario (login, id) {
-========
-export async function alterarLogin(login, id) {
->>>>>>>> 38af4f28a7d3d8f1814445b61fdcf7fb5c5c3d0d:backend/src/repository/loginRepository.js
-    const comando = `
 
-    update tb_cadastro_adm 
-    set email = ?,
-        senha = ?
-    where id_cadastro = ?;
+export async function alterarDiario (id, segredo) {
+
+    const comando = `
+    update tb_diario
+    set data = ?,
+        conteudo = ?
+    where id_diario= ?;
     `
  
-    let resposta = await con.query(comando, [login.email, login.senha, id])
+    let resposta = await con.query(comando, [segredo.data, segredo.conteudo, id])
     let info = resposta[0];
     
-    return info.affectedRows;
+    let linhasAfetadas = registros.affectedRows
+  
+    return linhasAfetadas;
 }
 
-<<<<<<<< HEAD:backend/src/repository/diarioRepository.js
-export async function deletarDiario (id, login) {
-========
-export async function deletarLogin(id) {
->>>>>>>> 38af4f28a7d3d8f1814445b61fdcf7fb5c5c3d0d:backend/src/repository/loginRepository.js
+export async function deletarDiario (id) {
     const comando = ` 
-     delete from tb_cadastro_adm
-     where id_cadastro = ?
+     delete from tb_diario
+     where id_diario = ?
     `
 
     let resposta = await con.query(comando, [id]);

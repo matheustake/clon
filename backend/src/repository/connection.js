@@ -5,6 +5,7 @@ const con = await mysql.createConnection({
 
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
+    port: process.env.MYSQL_PORT,
     password: process.env.MYSQL_PWD,
     database: process.env.MYSQL_DB,
     typeCast: function (field, next) {
@@ -21,6 +22,6 @@ const con = await mysql.createConnection({
 
 })
 
-console.log('-----> Conexão com o Banco de Dados S.O.E foi realizada!')
+console.log('-----> Conexão com o Banco de Dados Diario foi realizada!')
 
 export default con;
